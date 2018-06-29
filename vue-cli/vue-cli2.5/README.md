@@ -1,6 +1,6 @@
-# vue-example
+# vue-cli2.5
 
-> A Vue.js project
+> Vue-Cli 2.5 Template
 
 ## Build Setup
 
