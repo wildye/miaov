@@ -1,0 +1,48 @@
+@size: 2;
+@col-sum: 12;
+
+.col (@index, @s, @num) when (@index > 0) {
+    .col(@index - 1, @s, @num);
+    .col-@{s}-@{index} {
+        float: left;
+        width: 100% / @num * @index;
+        box-sizing: border-box;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px / @size;
+}
+
+.row::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+// xs
+@media all and (min-width: 768px) {
+    .col(@col-sum, xs, @col-sum);
+}
+
+@media all and (min-width: 960px) {
+    .col(@col-sum, md, @col-sum);
+    .md-hidden {
+        display: none;
+    }
+    .md-visited {
+        display: block;
+    }
+    .container {
+        width: 960px;
+    }
+    .row {
+        margin-left: -15px / @size;
+        margin-right: -15px / @size;
+    }
+}
+
+@media all and (min-width: 1180px) {
+    width: 1180px;
+}
